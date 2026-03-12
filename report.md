@@ -1,0 +1,7 @@
+For this lab, I implemented a coordinate-descent algorithm for image denoising. My implementation included three functions. My first function calculated the energy around open pixel and negated it to get the energy if the signed was flipped. The image_denoiser function calls the energy function to calculate whether a bit flip lowers the energy. If the new energy is less than the current energy, then the bit if flipped. The image_denoiser function takes two arguments: the noisy image and the parameters (h, b, n). The algorithm loops through all the pixels in the image and changes each pixel based on the condition specified. The loop exits once a complete pass through all the pixels does not change any of them. A loss function for the denoised image was created for computing the error (1 - accuracy).
+
+I complied the computationally heavy functions with numba, so that they ran faster.
+
+I ran a bounded global optimization using scipy over the h, b, and n parameters to find the optimal values. The differential evolution algorithm gave me the optimal parameter values: h=1.824, b=3.947, n=2.404 which gave an error of 0.0566 (accuracy=0.9434).
+
+In this lab, I learned how to use energy-based models to denoise an image. It was fascinating to see the connection between machine learning and physics in this exercise. This assignment has opened my mind up to the possibilities of applying methods in condensed matter physics to machine learning.
